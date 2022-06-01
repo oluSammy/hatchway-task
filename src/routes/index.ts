@@ -3,12 +3,10 @@ import express, {
   Response,
   NextFunction
 } from "express";
+import { testController } from "../controllers/indexController";
 
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send("Hello Hatchways!");
-});
+router.get('/', testController);
 
 export default router;
