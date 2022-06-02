@@ -9,8 +9,8 @@ const EXPIRATION_TIME = 3600;
 
 export const testController = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const cachedData = await client.get("private_jets");
-    console.log({ cachedData: "cachedData" });
+    const cachedData = await client.get("privates__");
+    console.log({ cachedData });
     if (cachedData) {
       console.log("using cached data");
       response.setSuccess(
@@ -25,7 +25,7 @@ export const testController = catchAsync(
 
     // client.set()
 
-    client.setEx("private_jets", EXPIRATION_TIME, JSON.stringify(data));
+    client.setEx("privates__", EXPIRATION_TIME, JSON.stringify(data));
 
     response.setSuccess(200, "Data Fetched", data);
     return response.send(res);
